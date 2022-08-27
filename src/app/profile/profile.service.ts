@@ -152,7 +152,7 @@ export class ProfileService {
       location: 'Bangalore',
       timeline: 'Dec 2021 to Present',
       role: 'MEAN Software Developer',
-      work: 'Working as a full stack developer.'
+      work: 'Working as an full stack developer.'
 
     }
 
