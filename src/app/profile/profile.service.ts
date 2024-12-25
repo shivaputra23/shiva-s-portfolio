@@ -8,76 +8,70 @@ import { environment } from '../../environments/environment';
 })
 export class ProfileService {
   //baseUrl = environment.baseUrl;
+  experience:string=''
 
   constructor(
     private http: HttpClient
-  ) { }
+  ) {
+    function calculateExperience(startDate:any) {
+      const start = new Date(startDate);
+      const now = new Date();
+    
+      let years = now.getFullYear() - start.getFullYear();
+      let months = now.getMonth() - start.getMonth();
+    
+      if (months < 0) {
+        years -= 1;
+        months += 12;
+      }
+    
+      return `${years} year${years !== 1 ? 's' : ''} and ${months} month${months !== 1 ? 's' : ''}`;
+    }
+    
+    // Example usage
+    this.experience = calculateExperience('2021-12-06');
+    console.log(`Software Developer with s${this.experience} of hands-on experience.`);
+   }
 
   projects:any = [
     {
       id: 1,
-      title: 'CRUD operation using MEAN stack',
+      title: 'Ecommerce application',
       desc: '',
-      livedemo: 'https://mehulk05.github.io/Blog-using-mean/#/',
-      githurl: 'https://github.com/mehulk05/Blog-using-mean',
-      mediumlink: 'https://itnext.io/crud-operation-using-mean-stack-7dfa2f51ec8c',
-      imgUrl: 'assets/images/z27.png',
+      livedemo: 'https://legalcliq-ecom-app.netlify.app',
+      githurl: 'https://github.com/shivaputra23/LegalCliQ_angular.git',
+      imgUrl: 'assets/images/legalcliq.png',
       tech: 'Angular 10, Node, MongoDB, Express'
     },
-
     {
       id: 2,
-      title: 'Multiroom Chat Application in Node JS',
+      title: 'Hacker News App Clone using ReactJS ',
       desc: '',
-      livedemo: 'https://chatapp-using-node.herokuapp.com/',
-      githurl: 'https://github.com/mehulk05/Chat-app-using-Nodejs',
-      mediumlink: 'https://medium.com/weekly-webtips/building-a-multiroom-chat-application-in-node-js-8a8adca5acf2',
-      imgUrl: 'assets/images/z23.png',
-      tech: 'Node JS,Socket IO'
+      livedemo: 'https://hacker-news-clone23.herokuapp.com/',
+      githurl: 'https://github.com/shivaputra23/Hacker-News-Clone.git',
+      imgUrl: 'assets/images/hacker.png',
+      tech: 'React JS'
     },
-
     {
       id: 3,
-      title: 'Hacker News App using ReactJS ',
-      desc: '',
-      livedemo: '',
-      githurl: 'https://github.com/shivaputra23/Hacker-News-Clone.git',
-      mediumlink: '',
-      imgUrl: 'assets/images/z24.png',
-      tech: 'React JS, XMl to JSON'
-    },
-    {
-      id: 4,
-      title: 'Weather App with React',
-      desc: '',
-      livedemo: '',
-      githurl: '',
-      mediumlink: '',
-      imgUrl: 'assets/images/z9.png',
-      tech: 'React, Open MAp Api'
-    },
-    {
-      id: 5,
       title: 'Personal Portfolio Using HTML,CSS,Javascript',
       desc: '',
-      livedemo: 'http://shivaputra-profile.herokuapp.com/',
+      livedemo: 'https://shivaputra-profile.herokuapp.com/',
       githurl: 'https://github.com/shivaputra23/Portfolio.git',
-      mediumlink: ':',
-      imgUrl: 'assets/images/z11.png',
+      imgUrl: 'assets/images/portfolio2.png',
       tech: 'HTML, CSS, Javascript'
     },
     {
-      id: 6,
+      id: 4,
       title: 'Personal Portfolio Using Angular',
       desc: '',
-      livedemo: '',
-      githurl: '',
-      mediumlink: '',
-      imgUrl: 'assets/images/z12.png',
+      livedemo: 'https://shivaputra-portfolio.netlify.app/',
+      githurl: 'https://github.com/shivaputra23/shiva-s-portfolio.git',
+      imgUrl: 'assets/images/portfolio1.png',
       tech: 'Angular,Bootstrap'
     }
   ]
-  about2 = `Software Developer with 1 year of experience .
+  about2 = `Software Developer wisth ${this.experience} of experience .
   Worked with Software Development Life Cycle(SDLC) methodologies .
   Expertise in Angular All versions, React, Javascript,  Node JS and UI with Responsive Designs .
   Have good understanding of Angular, Nodejs, MongoDB, React, Javascript, Typescript and Python`
@@ -151,8 +145,8 @@ export class ProfileService {
       company: 'Signdesk.com',
       location: 'Bangalore',
       timeline: 'Dec 2021 to Present',
-      role: 'MEAN Software Developer',
-      work: 'Working as an full stack developer.'
+      role: 'MEAN Stack Developer',
+      work: 'Working as an MEAN full stack developer.'
 
     }
 
