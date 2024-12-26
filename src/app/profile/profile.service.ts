@@ -59,7 +59,7 @@ export class ProfileService {
       id: 3,
       title: 'Personal Portfolio Using HTML,CSS,Javascript',
       desc: '',
-      livedemo: 'https://shivaputra-profile.herokuapp.com/',
+      livedemo: 'https://shiva-p-portfolio.netlify.app/',
       githurl: 'https://github.com/shivaputra23/Portfolio.git',
       imgUrl: 'assets/images/portfolio2.png',
       tech: 'HTML, CSS, Javascript'

@@ -24,6 +24,7 @@ export class ContactComponent implements OnInit {
          to_name: "shivaputra",
          subject: this.model.subject,
          message: this.model.message,
+         email_id: this.model.eamil,
          reply_to: "shivaputra050699@gmail.com",
        }
       // Send email using EmailJS
