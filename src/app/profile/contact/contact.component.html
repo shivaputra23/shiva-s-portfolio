@@ -53,9 +53,15 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col">
-                                                    <button class="btn btn-primary" type="submit">Send</button>
+                                                    <button class="btn btn-primary" [disabled]="!f.form.valid" type="submit" (click)="onSubmit()">Send</button>
                                                 </div>
                                             </div>
+                                            <div *ngIf="isMessageVisible" class="message-container">
+                                                <div class="message-box" [ngClass]="{'success': successMessage, 'error': errorMessage}">
+                                                  {{ successMessage || errorMessage }}
+                                                </div>
+                                              </div>
+                                              
                                         </form>
                                     </div>
                                 </div>
@@ -79,3 +85,4 @@
         </div>
     </div>
 </div>
+

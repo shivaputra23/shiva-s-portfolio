@@ -16,9 +16,9 @@
                                 <div class="timeline-label">
                                     <h2>{{exp.company}}<span>- &nbsp;{{exp.timeline}}, {{exp.location}}</span></h2>
                                     <h4> {{exp.role}}</h4>
-                                    
+                                    <p>{{exp.about}}</p>
                                     <ul>
-                                      <li *ngFor="let work of exp.work | split">{{work}}</li>
+                                      <li *ngFor="let work of exp.work">{{work}}</li>
                                     </ul>
 
                                 </div>

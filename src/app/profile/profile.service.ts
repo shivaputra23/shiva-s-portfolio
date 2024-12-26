@@ -8,114 +8,126 @@ import { environment } from '../../environments/environment';
 })
 export class ProfileService {
   //baseUrl = environment.baseUrl;
-
+  experience:any=this.calculateExperience('2021-12-06','yearsAndMonths')
+  totalYears: any= this.calculateExperience('2021-12-06','onlyYears')
+  totalMonths:any=this.calculateExperience('2021-12-06','onlyMonths')
   constructor(
     private http: HttpClient
-  ) { }
+  ) {
+   
+    
+    // Example usage
+    console.log(`Software Developer with s${this.experience} of hands-on experience.`);
+   }
+    calculateExperience(startDate:any,type:any ='yearsAndMonths') {
+    const start = new Date(startDate);
+    const now = new Date();
+  
+    let years = now.getFullYear() - start.getFullYear();
+    let months = now.getMonth() - start.getMonth();
+  
+    if (months < 0) {
+      years -= 1;
+      months += 12;
+    }
+    if(type == "yearsAndMonths") return `${years} year${years !== 1 ? 's' : ''} and ${months} month${months !== 1 ? 's' : ''}`;
+    if(type == "onlyYears") return `${years} year${years !== 1 ? 's' : ''}`;
+    if(type == "onlyMonths") return `${months} month${months !== 1 ? 's' : ''}`;
+    return `${years} year${years !== 1 ? 's' : ''} and ${months} month${months !== 1 ? 's' : ''}`;
+  }
 
   projects:any = [
     {
       id: 1,
-      title: 'CRUD operation using MEAN stack',
+      title: 'Ecommerce application',
       desc: '',
-      livedemo: 'https://mehulk05.github.io/Blog-using-mean/#/',
-      githurl: 'https://github.com/mehulk05/Blog-using-mean',
-      mediumlink: 'https://itnext.io/crud-operation-using-mean-stack-7dfa2f51ec8c',
-      imgUrl: 'assets/images/z27.png',
+      livedemo: 'https://legalcliq-ecom-app.netlify.app',
+      githurl: 'https://github.com/shivaputra23/LegalCliQ_angular.git',
+      imgUrl: 'assets/images/legalcliq.png',
       tech: 'Angular 10, Node, MongoDB, Express'
     },
-
     {
       id: 2,
-      title: 'Multiroom Chat Application in Node JS',
+      title: 'Hacker News App Clone using ReactJS ',
       desc: '',
-      livedemo: 'https://chatapp-using-node.herokuapp.com/',
-      githurl: 'https://github.com/mehulk05/Chat-app-using-Nodejs',
-      mediumlink: 'https://medium.com/weekly-webtips/building-a-multiroom-chat-application-in-node-js-8a8adca5acf2',
-      imgUrl: 'assets/images/z23.png',
-      tech: 'Node JS,Socket IO'
+      livedemo: 'https://hacker-news-clone23.herokuapp.com/',
+      githurl: 'https://github.com/shivaputra23/Hacker-News-Clone.git',
+      imgUrl: 'assets/images/hacker.png',
+      tech: 'React JS'
     },
-
     {
       id: 3,
-      title: 'Hacker News App using ReactJS ',
-      desc: '',
-      livedemo: '',
-      githurl: 'https://github.com/shivaputra23/Hacker-News-Clone.git',
-      mediumlink: '',
-      imgUrl: 'assets/images/z24.png',
-      tech: 'React JS, XMl to JSON'
-    },
-    {
-      id: 4,
-      title: 'Weather App with React',
-      desc: '',
-      livedemo: '',
-      githurl: '',
-      mediumlink: '',
-      imgUrl: 'assets/images/z9.png',
-      tech: 'React, Open MAp Api'
-    },
-    {
-      id: 5,
       title: 'Personal Portfolio Using HTML,CSS,Javascript',
       desc: '',
-      livedemo: 'http://shivaputra-profile.herokuapp.com/',
+      livedemo: 'https://shivaputra-profile.herokuapp.com/',
       githurl: 'https://github.com/shivaputra23/Portfolio.git',
-      mediumlink: ':',
-      imgUrl: 'assets/images/z11.png',
+      imgUrl: 'assets/images/portfolio2.png',
       tech: 'HTML, CSS, Javascript'
     },
     {
-      id: 6,
+      id: 4,
       title: 'Personal Portfolio Using Angular',
       desc: '',
-      livedemo: '',
-      githurl: '',
-      mediumlink: '',
-      imgUrl: 'assets/images/z12.png',
+      livedemo: 'https://shivaputra-portfolio.netlify.app/',
+      githurl: 'https://github.com/shivaputra23/shiva-s-portfolio.git',
+      imgUrl: 'assets/images/portfolio1.png',
       tech: 'Angular,Bootstrap'
     }
   ]
-  about2 = `Software Developer with 1 year of experience .
-  Worked with Software Development Life Cycle(SDLC) methodologies .
-  Expertise in Angular All versions, React, Javascript,  Node JS and UI with Responsive Designs .
-  Have good understanding of Angular, Nodejs, MongoDB, React, Javascript, Typescript and Python`
+  about2 = `Software Developer with ${this.experience} of experience in building dynamic, scalable, and responsive web applications. Over the past  ${this.totalYears}, I have gained hands-on experience across the Software Development Life Cycle, delivering high-quality solutions using technologies like Angular, Node.js, JavaScript, TypeScript, MongoDB, and React.`
 
-  about = "Lover of innovation and everything related to generate new knowledge.Face problems with a smile and solve them as soon as possible. Very calculated about the time I spend and work I do."
-  resumeurl = "https://drive.google.com/file/d/1CAlpO3k2Ouky3xCrXEYJJkzHauUd-bil/view?usp=sharing"
+  about = "I specialize in both front-end and back-end development, with a deep understanding of Angular and React for creating seamless user interfaces. On the back-end, I have built robust, scalable systems using Node.js and MongoDB."
+  resumeurl = "https://drive.google.com/file/d/1qRXBntR46TJuWqZg73ooe29y1U3ZpsWj/view?usp=drive_link"
 
   skillsData: any = [
     {
       'id': '1',
       'skill': 'ANGULAR',
+      "description":"Skilled in building scalable and dynamic single-page applications (SPAs) using Angular, including components, services, and state management.",
       'progress': '85%'
     },
     {
       'id': '2',
       'skill': 'NODE JS',
+      "description":"Experienced in developing server-side applications using Node.js, handling asynchronous operations, and creating RESTful APIs with Express.js.",
       'progress': '80%'
     },
     {
       'id': '3',
       'skill': 'JAVASCRIPT',
+      "description":"Proficient in modern JavaScript (ES6+), including asynchronous programming (Promises, async/await), closures, and DOM manipulation.",
       'progress': '80%'
     },
     {
       'id': '4',
       'skill': 'MONOGO DB',
+      "description":"MongoDB for NoSQL database management, performing CRUD operations, and utilizing aggregation frameworks.",
       'progress': '75%'
     },
     {
       'id': '5',
-      'skill': 'REACT JS',
-      'progress': '75%'
+      'skill': 'TYPESCRIPT',
+      "description":" Proficient in building robust applications with TypeScript, leveraging static typing, interfaces, and modern OOP features to ensure maintainable and scalable code",
+      'progress': '70%'
     },
     {
       'id': '6',
-      'skill': 'PYTHON',
+      'skill': 'Tools & Technologies (Git, GitHub, NPM, Bitbucket)',
+      "description":"Experienced in version control with Git, including branching and collaboration, and proficient in package  and script management using NPM.",
       'progress': '70%'
-    }
+    },
+    {
+      'id': '7',
+      'skill': 'Redis',
+      "description":"Experienced in utilizing Redis as an in-memory data store and cache, optimizing performance with its fast data retrieval.",
+      'progress': '75%'
+    },
+    {
+      'id': '8',
+      'skill': 'REACT JS',
+      "description":"Experienced in developing interactive user interfaces with React, utilizing React Hooks, Context API, and functional component architecture.",
+      'progress': '75%'
+    },
   ];
 
 
@@ -148,11 +160,21 @@ export class ProfileService {
   exprienceData: any = [
     {
       id: 1,
-      company: 'Signdesk.com',
-      location: 'Bangalore',
+      company: 'SignDesk',
+      location: 'Bengaluru, India',
       timeline: 'Dec 2021 to Present',
-      role: 'MEAN Software Developer',
-      work: 'Working as a full stack developer.'
+      role: 'Software Engineer ',
+      about:"At SignDesk, I contribute to the development of e-signature platform, using the MEAN stack (MongoDB, Express.js, Angular, Node.js) to build robust solutions that optimize business workflows.",
+      work: [
+"Designed and implemented complex business logic for seamless module integration, enabling efficient e-signature workflows within the platform.",
+"Led the development and integration of e-signature functionalities, significantly enhancing system performance and reliability.",
+"Delivered new features on time within Agile sprints, improving platform functionality and enhancing user experience.",
+"Optimized key system components to improve scalability and performance, resulting in improved uptime and faster load times.",
+"Implemented a centralized error-handling mechanism that streamlined error reporting and reduced bug-fix turnaround time.",
+"Managed and delivered multiple critical, time-sensitive projects while maintaining high standards of code quality.",
+"Conducted regular code reviews, collaborating with team members to improve overall code quality and reduce errors.",
+"In recognition of my contributions, I was awarded the Best Employee of the Quarter and nominated multiple times for my consistent performance and dedication to delivering high-quality solutions."
+      ]
 
     }
 
